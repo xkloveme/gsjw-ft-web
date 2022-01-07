@@ -1,6 +1,14 @@
 <template>
-  <div :class="classObj" class="app-wrapper" :style="{ '--current-color': theme }">
-    <div v-if="device === 'mobile' && sidebar.opened" class="drawer-bg" @click="handleClickOutside"/>
+  <div
+    :class="classObj"
+    class="app-wrapper"
+    :style="{ '--current-color': theme }"
+  >
+    <div
+      v-if="device === 'mobile' && sidebar.opened"
+      class="drawer-bg"
+      @click="handleClickOutside"
+    />
     <sidebar class="sidebar-container" />
     <div :class="{ hasTagsView: needTagsView }" class="main-container">
       <div :class="{ 'fixed-header': fixedHeader }">
@@ -14,10 +22,10 @@
 </template>
 
 <script setup>
-import { useWindowSize } from '@vueuse/core'
-import Sidebar from './components/Sidebar/index.vue'
-import { AppMain, Navbar, Settings, TagsView } from './components'
-import defaultSettings from '@/settings'
+import { useWindowSize } from '@vueuse/core';
+import Sidebar from './components/Sidebar/index.vue';
+import { AppMain, Navbar, Settings, TagsView } from './components';
+import defaultSettings from '@/settings';
 
 const store = useStore();
 const theme = computed(() => store.state.settings.theme);
@@ -32,25 +40,25 @@ const classObj = computed(() => ({
   openSidebar: sidebar.value.opened,
   withoutAnimation: sidebar.value.withoutAnimation,
   mobile: device.value === 'mobile'
-}))
+}));
 
 const { width, height } = useWindowSize();
 const WIDTH = 992; // refer to Bootstrap's responsive design
 
 watchEffect(() => {
   if (device.value === 'mobile' && sidebar.value.opened) {
-    store.dispatch('app/closeSideBar', { withoutAnimation: false })
+    store.dispatch('app/closeSideBar', { withoutAnimation: false });
   }
   if (width.value - 1 < WIDTH) {
-    store.dispatch('app/toggleDevice', 'mobile')
-    store.dispatch('app/closeSideBar', { withoutAnimation: true })
+    store.dispatch('app/toggleDevice', 'mobile');
+    store.dispatch('app/closeSideBar', { withoutAnimation: true });
   } else {
-    store.dispatch('app/toggleDevice', 'desktop')
+    store.dispatch('app/toggleDevice', 'desktop');
   }
-})
+});
 
 function handleClickOutside() {
-  store.dispatch('app/closeSideBar', { withoutAnimation: false })
+  store.dispatch('app/closeSideBar', { withoutAnimation: false });
 }
 
 const settingRef = ref(null);
@@ -60,8 +68,8 @@ function setLayout() {
 </script>
 
 <style lang="scss" scoped>
-  @import "@/assets/styles/mixin.scss";
-  @import "@/assets/styles/variables.module.scss";
+@import '@/assets/styles/mixin.scss';
+@import '@/assets/styles/variables.module.scss';
 
 .app-wrapper {
   @include clearfix;

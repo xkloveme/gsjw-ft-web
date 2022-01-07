@@ -1,10 +1,10 @@
 <!--
  * @Author: xkloveme
  * @Date: 2022-01-07 15:07:43
- * @LastEditTime: 2022-01-07 17:08:50
+ * @LastEditTime: 2022-01-07 18:51:01
  * @LastEditors: xkloveme
  * @Description: 首页模版
- * @FilePath: /RuoYi-Vue3/src/views/index.vue
+ * @FilePath: /gsjw-ft-web/src/views/index.vue
  * @Copyright © xkloveme
 -->
 <template>
