@@ -9,19 +9,18 @@
 -->
 <template>
   <div class="homePage-container">
-    home
-    <!-- <HomeRaddarChart/> -->
+    <HomeChart/>
   </div>
 </template>
 
 <script setup>
-// import HomeRaddarChart from "@/views/home/index";
+import HomeChart from "@/views/home/index";
 </script>
 
 <style lang="scss" scoped>
 .homePage-container {
-  width: 800px;
+  width: 1000px;
   max-width: 100%;
-  margin: 100px auto;
+  margin: 200px auto;
 }
 </style>

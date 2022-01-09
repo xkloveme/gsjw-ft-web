@@ -8,17 +8,18 @@
  * @Copyright © xkloveme
 -->
 <template>
-  <BaseEchart :options="options" />
+  <BaseEchart :options="options" height="50vh" />
 </template>
 
 <script setup>
+import * as echarts from 'echarts'
 import BaseEchart from '@/views/chart/BaseEchart';
 
 const options = computed(() => {
   return {
     backgroundColor: '#080b30',
     title: {
-      text: '哎呦,不错哦',
+      text: '欢迎使用拱墅城投系统',
       textStyle: {
         align: 'center',
         color: '#fff',
@@ -57,11 +58,11 @@ const options = computed(() => {
       }
     },
     grid: {
-      top: '15%',
+      top: '5%',
       left: '5%',
       right: '5%',
-      bottom: '15%'
-      // containLabel: true
+      bottom: '5%',
+      containLabel: true
     },
     xAxis: [
       {
